@@ -10,7 +10,7 @@ export const useDownload = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:5000/download', {
+      const response = await fetch('https://f-app12.vercel.app/download', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,9 +24,9 @@ export const useDownload = () => {
         const videoFileName = data.file;
 
         // Fetch the file using the returned filename
-        const fileResponse = await fetch(`http://localhost:5000/file?filename=${videoFileName}`);
+        const fileResponse = await fetch(`https://f-app12.vercel.app/file?filename=${videoFileName}`);
         if (fileResponse.ok) {
-          setFileDownloadUrl(`http://localhost:5000/file?filename=${videoFileName}`);
+          setFileDownloadUrl(`https://f-app12.vercel.app/file?filename=${videoFileName}`);
         } else {
           setError('File not available for download');
         }
